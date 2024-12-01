@@ -1,0 +1,75 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- Aquí puedes agregar el título o cualquier otro contenido en el encabezado -->
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="d-flex gap-2 mb-3">
+            <input type="text" class="form-control large-input" id="inputText" placeholder="Actividad">
+            <button type="button" class="btn btn-primary large-button" (click)="registrarActividad()">Registrar</button>
+            <button class="btn btn-danger mb-3" (click)="vaciarTodo()">Limpiar todo</button>
+          </div>
+        </form>
+
+        <!-- Barra desplegable de prioridad -->
+        <select class="form-select form-select-sm mt-3 custom-select" aria-label="Small select example" [(ngModel)]="prioridad">
+          <option value="Importante" selected>Prioridad</option> 
+          <option value="Muy importante">1</option>
+          <option value="Importante">2</option>
+          <option value="Poco importante">3</option>
+        </select>
+
+        <!-- Campo de fecha debajo de la barra desplegable con el botón "Buscar" -->
+        <div class="form-group mt-3 d-flex">
+          <label for="fecha" class="mr-2">Fecha (dd/mm/yyyy):</label>
+          <input type="text" [(ngModel)]="fecha" (input)="formatearFecha()" placeholder="dd/mm/yyyy" maxlength="10" class="form-control" id="fecha">
+          <button type="button" class="btn btn-secondary ml-2" (click)="buscarFecha()">Buscar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h1>Actividades pendientes</h1>
+<button class="btn btn-danger mb-3" (click)="vaciarPendientes()">Limpiar Pendientes</button>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">N° Actividad</th>
+      <th scope="col">Actividad</th>
+      <th scope="col">Prioridad</th>
+      <th scope="col">Opciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let actividad of actividades; let i = index">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{ actividad.actividad }}</td>
+      <td>{{ actividad.prioridad }}</td>
+      <td>
+        <i class="bi bi-check2-square" (click)="marcarComoHecho(i)" style="cursor: pointer; color: green;" title="Hecho"></i>
+        <i class="bi bi-pencil-square" (click)="editarActividad(i)" style="cursor: pointer; color: blue;" title="Editar"></i>
+        <i class="bi bi-trash3" (click)="eliminarActividad(i)" style="cursor: pointer; color: red;" title="Eliminar"></i>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1>Realizadas</h1>
+<button class="btn btn-danger mb-3" (click)="vaciarActividadesRealizadas()">Limpiar Realizadas</button>
+<table class="table mt-4">
+  <thead>
+    <tr>
+      <th scope="col">N° Actividad</th>
+      <th scope="col">Actividad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let actividad of getActividadesRealizadas(); let i = index">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{ actividad.actividad }}</td>
+    </tr>
+  </tbody>
+</table>

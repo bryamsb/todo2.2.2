@@ -1,0 +1,91 @@
+.large-input {
+    font-size: 1.5rem; 
+    height: 52px;   
+    width: 400px;   
+  }
+
+.large-button {
+    font-size: 1.5rem; 
+    height: 60px;     
+    width: auto;      
+    padding: 0 1.5rem; 
+    background-color: blue; 
+    color: white;          
+    border: none;          
+    transition: background-color 0.3s;
+  }
+  
+ 
+  .large-button:hover {
+    background-color: #007BFF; 
+  }
+
+
+  .btn-danger {
+    font-size: 1.5rem; 
+    height: 60px;     
+    width: auto;      
+    padding: 0 1.5rem; 
+    background-color: red; 
+    color: white;          
+    border: none;          
+    transition: background-color 0.3s;
+  }
+  
+ 
+  .btn-danger:hover {
+    background-color: #f33737e6; 
+  }
+
+
+
+  .table {
+    width: 100%; 
+    border-collapse: collapse; 
+    margin-top: 20px; 
+  }
+  
+  .table thead th {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold; 
+  }
+  
+  .table tbody tr {
+    transition: background-color 0.3s; 
+  }
+  
+
+  .table tbody tr:nth-child(even) {
+    background-color: #f2f2f2; 
+  }
+  
+  
+  .table tbody tr:hover {
+    background-color: #d1e7fd; 
+  }
+  
+ 
+  .table td, .table th {
+    padding: 12px; 
+    border: 1px solid #dee2e6; 
+    text-align: left; 
+  }
+
+  .custom-select {
+    background-color: #f8f9fa; 
+    color: #000000; 
+    font-weight: bold;
+    width: 407px; 
+    height: 38px; 
+  }
+  
+  .custom-select option {
+    color: #495057;
+    font-size: 14px;
+  }
+
+  
+  
+  
+  
